@@ -13,6 +13,17 @@ sudo apt install ansible
 
 ## Configuration
 
+Add the ansible configuration file:
+
+    vim $HOME/ansible.cfg
+
+And add the following to it:
+
+    [default]
+    inventory=inventory.ini
+
+Add an inventory:
+
     vim $HOME/inventory.ini
 
 Add an example group to the inventory e.g.
@@ -22,4 +33,8 @@ Add an example group to the inventory e.g.
 
 Confirm it's working:
 
-    ansible -i inventory.ini example -m ping
+    ansible example -m ping
+
+Or:
+
+    ansible example -a "free -h"
