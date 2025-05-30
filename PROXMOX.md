@@ -7,7 +7,9 @@
 
 ### Steps
 
-1. Download the ISO using the GUI (tested on https://cloud-images.ubuntu.com/lunar/current/lunar-server-cloudimg-amd64-disk-kvm.img)
+(modified image url)
+
+1. Download the ISO using the GUI: https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img
 1. Create the VM via CLI
 ```bash
 qm create 5000 --memory 2048 --core 2 --name ubuntu-cloud --net0 virtio,bridge=vmbr0
