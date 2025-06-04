@@ -44,4 +44,10 @@ Access the portainer web interfacet at:
 
 ## Running Services
 
-...
+You will need Portainer to be able to access the templates/stacks defined in your github repository, to do that you need to generate a fine-grained [personal access token](https://github.com/settings/personal-access-tokens) (only needs Contents -> Read only, disable webhooks).
+
+1. Add a compose file under https://github.com/martinvium/homelab-devops/tree/main/portainer/<app>/docker-compose.yml
+2. Visit Stacks -> Create stack
+4. Enable authentication add paste in the token created above
+5. Point the path to file added above
+6. Leave reference at default HEAD
