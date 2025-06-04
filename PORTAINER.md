@@ -33,3 +33,15 @@ Download and run the portainer container:
 Access the portainer web interfacet at:
 
     https://<ip-address>:9443/
+
+## Docker Standalone Environments
+
+1. Create 2 additional VM's
+2. Install docker on them with SU (repeat Installing Docker steps)
+3. Add them under environments in Portainer
+4. Run the agent command on each VM
+5. Add the VM's host and IP in portainer
+
+## Running Services
+
+...
