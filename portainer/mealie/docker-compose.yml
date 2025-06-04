@@ -17,7 +17,7 @@ services:
       PUID: 1000
       PGID: 1000
       TZ: America/Anchorage
-      BASE_URL: https://mealie.yourdomain.com
+      BASE_URL: https://mealie.codefuss.com
       # Database Settings
       DB_ENGINE: postgres
       POSTGRES_USER: mealie
