@@ -1047,7 +1047,7 @@
   # configuration file via the API or CLI. This setting useful when a configuration is
   # to be forced/modified by some third-party application (like infrastructure-as-code
   # providers) and should not be changed by any means.
-  readOnly = false
+  readOnly = true
 
   [misc.check]
     # Pi-hole is very lightweight on resources. Nevertheless, this does not mean that you
