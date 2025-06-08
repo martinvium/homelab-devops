@@ -35,7 +35,7 @@ The configuration file for Samba is located at /etc/samba/smb.conf. To add the n
 
 At the bottom of the file, add the following lines:
 
-    [sambashare]
+    [movies]
         comment = Movies
         path = /media/movies
         read only = no
@@ -53,9 +53,10 @@ Update the firewall rules to allow Samba traffic:
 
 https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Standalone_Server
 
-    useradd -s /sbin/nologin username
-    passwd username
-    smbpasswd -a username
+    sudo useradd -s /sbin/nologin username
+    sudo usermod -a -G family username
+    sudo passwd username
+    sudo smbpasswd -a username
 
 Any password can be used for `passwd` since the user cannot login anyways without a shell.
 
@@ -63,7 +64,8 @@ Any password can be used for `passwd` since the user cannot login anyways withou
 
 Samba can be configured to automatically create linux user accounts after successful samba authentication, using the [global] add user script smb.conf option. Unfortunately this option does not work as intended at end-user access time, but it can be leveraged to simplify adding users to your samba Standalone Server. Because, when adding a samba user with
 
-    # smbpasswd -a demoUser
+    smbpasswd -a demoUser
+
     New SMB password: Passw0rd
     Retype new SMB password: Passw0rd
     Added user demoUser.
