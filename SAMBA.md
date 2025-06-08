@@ -40,6 +40,7 @@ At the bottom of the file, add the following lines:
         path = /media/movies
         read only = no
         browsable = yes
+        force group = family
 
 Now that we have our new share configured, save it and restart Samba for it to take effect:
 
