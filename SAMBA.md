@@ -4,6 +4,8 @@ SAMBA filesharing
 
 https://ubuntu.com/tutorials/install-and-configure-samba#1-overview
 
+## Installation
+
     sudo apt update
     sudo apt install samba
 
@@ -11,7 +13,7 @@ We can check if the installation was successful by running:
 
     whereis samba
 
-## Add a shared folder
+## Adding a shared folder
 
 Now that Samba is installed, we need to create a directory for it to share:
 
