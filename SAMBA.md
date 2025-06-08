@@ -58,3 +58,23 @@ https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Standalone_Server
     smbpasswd -a username
 
 Any password can be used for `passwd` since the user cannot login anyways without a shell.
+
+## Configuring SAMBA to also create local users
+
+Samba can be configured to automatically create linux user accounts after successful samba authentication, using the [global] add user script smb.conf option. Unfortunately this option does not work as intended at end-user access time, but it can be leveraged to simplify adding users to your samba Standalone Server. Because, when adding a samba user with
+
+    # smbpasswd -a demoUser
+    New SMB password: Passw0rd
+    Retype new SMB password: Passw0rd
+    Added user demoUser.
+
+Samba will automatically call the configured add user script, and create the local linux user for you.
+
+A very simple sample add_user.sh script could be something like:
+
+    #!/bin/bash
+    adduser --no-create-home --shell /usr/sbin/nologin --user-group $1
+
+Both the linux and the samba user will be deleted with
+
+    # pdbedit -x demoUser
