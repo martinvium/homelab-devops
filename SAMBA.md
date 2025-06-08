@@ -3,6 +3,7 @@
 SAMBA filesharing
 
 https://ubuntu.com/tutorials/install-and-configure-samba#1-overview
+https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Standalone_Server
 
 ## Installation
 
@@ -13,11 +14,20 @@ We can check if the installation was successful by running:
 
     whereis samba
 
+## Group for users accessing shared folders
+
+    sudo groupadd family
+
+Adding users to the group
+
+    sudo usermod -a -G family username
+
 ## Adding a shared folder
 
 Now that Samba is installed, we need to create a directory for it to share:
 
-    mkdir /media/movies
+    sudo mkdir /media/movies
+    sudo chown :family /media/movies
 
 The configuration file for Samba is located at /etc/samba/smb.conf. To add the new directory as a share, we edit the file by running:
 
@@ -38,3 +48,13 @@ Now that we have our new share configured, save it and restart Samba for it to t
 Update the firewall rules to allow Samba traffic:
 
     sudo ufw allow samba
+
+## Adding users
+
+https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Standalone_Server
+
+    useradd -s /sbin/nologin username
+    passwd username
+    smbpasswd -a username
+
+Any password can be used for `passwd` since the user cannot login anyways without a shell.
