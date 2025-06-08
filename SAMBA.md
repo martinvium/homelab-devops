@@ -73,7 +73,7 @@ Samba will automatically call the configured add user script, and create the loc
 A very simple sample add_user.sh script could be something like:
 
     #!/bin/bash
-    adduser --no-create-home --shell /usr/sbin/nologin --user-group $1
+    adduser --shell /usr/sbin/nologin --user-group $1
 
 Both the linux and the samba user will be deleted with
 
