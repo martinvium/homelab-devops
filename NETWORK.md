@@ -1,5 +1,20 @@
 # Network
 
+## Ports
+
+|Device|Port|Type|
+|---|---|---|
+|Desktop01|1|2.5Gb|
+|Desktop02|2|2.5Gb|
+|Desktop03|3|2.5Gb|
+|N100DC|4|2.5Gb|
+|M720Q-01|5|2.5Gb|
+|M720Q-02|6|2.5Gb|
+|Synology|7|2.5Gb|
+|Router|8|2.5Gb|
+|Switch02?|1|10Gb|
+|N100DC?|2|10Gb|
+
 ## Devices
 
 Easy way to find these is to visit the Router at:
