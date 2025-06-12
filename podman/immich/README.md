@@ -15,4 +15,4 @@
 
     podman compose up -d
 
-To register for the admin user, access the web application at http://<machine-ip-address>:2283
+To register for the admin user, access the web application at `http://<machine-ip-address>:2283`
