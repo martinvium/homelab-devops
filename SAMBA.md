@@ -24,14 +24,15 @@ Adding users to the group
 
 ## Adding a shared folder
 
-Now that Samba is installed, we need to create a directory for it to share:
-
-    sudo mkdir /media/movies
-    sudo chown :family /media/movies
-
-OR if using ZFS datasets:
+IF using ZFS datasets:
 
     sudo zfs create data/movies
+
+Now that Samba is installed, we need to create a directory for it to share:
+
+    sudo mkdir /data/movies
+    sudo chown :family /data/movies
+    sudo chmod -R 770 /data/movies
 
 The configuration file for Samba is located at /etc/samba/smb.conf. To add the new directory as a share, we edit the file by running:
 
@@ -41,7 +42,7 @@ At the bottom of the file, add the following lines:
 
     [movies]
         comment = Movies
-        path = /media/movies
+        path = /data/movies
         read only = no
         browsable = yes
         force group = family
