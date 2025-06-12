@@ -29,6 +29,10 @@ Now that Samba is installed, we need to create a directory for it to share:
     sudo mkdir /media/movies
     sudo chown :family /media/movies
 
+OR if using ZFS datasets:
+
+    sudo zfs create data/movies
+
 The configuration file for Samba is located at /etc/samba/smb.conf. To add the new directory as a share, we edit the file by running:
 
     sudo vi /etc/samba/smb.conf
