@@ -7,9 +7,25 @@
 
 ## Configuration
 
-1. Ensure XDG_DATA_HOME is defined in .bashrc
-2. Copy .env.example to .env
-3. Edit .env replacing the default with a randomized password
+Create a ZFS dataset (if using):
+
+    sudo zfs create data/immich
+
+Create a user to run:
+
+    sudo adduser --system --group immich
+
+Assign the dataset to the user:
+
+    chown -R immich:immich /data/immich/
+
+Copy .env.example to .env
+
+    cp .env.example .env
+
+Edit .env replacing the default with a randomized password
+
+    vim .env
 
 ## Run
 
