@@ -15,6 +15,10 @@ Create a user to run:
 
     sudo adduser --system --group immich
 
+Enable the user with systemctl
+
+    loginctl enable-linger immich
+
 Assign the dataset to the user:
 
     chown -R immich:immich /data/immich/
