@@ -38,3 +38,13 @@ Create a user to run:
 Assign the dataset to the user:
 
     chown -R immich:immich /data/immich/
+
+## Generating quadlet / systemd auto start
+
+In order to automatically start start the containers after e.g. a reboot, podman recommends using something called quadlets, which I suppose is an alternative to compose.yaml syntax. `podlet` does not support $ interpolation at the time of writing, so inline everything that cannot be loaded via env file.
+
+    sudo apt install build-essential
+    sudo apt-get install rustup
+    rustup default stable
+    cargo install podlet
+    podlet compose --pod > .container
