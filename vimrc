@@ -96,3 +96,7 @@ noremap <leader>c "+
 " OVERWRITE COLORSCHEME:
 
 highlight LineNr guifg=#777777
+
+" Disable bell sound
+set visualbell
+set t_vb=
