@@ -15,6 +15,14 @@ Check unit file was generated:
     
     systemctl --user list-unit-files
 
+Starting services:
+
+    systemctl --user start immich-server immich-machine-learning
+
+You can debug relevant information using
+
+    journalctl --user -xeu immich-server
+
 ## Generating quadlet / systemd auto start
 
 In order to automatically start start the containers after e.g. a reboot, podman recommends using something called quadlets,
