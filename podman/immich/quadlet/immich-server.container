@@ -1,16 +1,15 @@
 [Unit]
-Requires=immich-redis.service immich-database.service
-After=immich-redis.service immich-database.service
+Requires=redis.service database.service
+After=redis.service database.service
 
 [Container]
-ContainerName=immich_server
-Environment=DB_DATABASE_NAME=immich DB_HOSTNAME=immich_postgres DB_PASSWORD=shorter-emphasize-ravage DB_USERNAME=postgres REDIS_HOSTNAME=immich_redis
+ContainerName=api
+Environment=DB_DATABASE_NAME=immich DB_HOSTNAME=database DB_PASSWORD=shorter-emphasize-ravage DB_USERNAME=postgres REDIS_HOSTNAME=redis
 Image=ghcr.io/immich-app/immich-server:release
-PublishPort=2283:2283
+Pod=immich.pod
 Volume=/data/immich/library:/usr/src/app/upload
 Volume=/etc/localtime:/etc/localtime:ro
 Volume=/data/photos:/media/photos
-Pod=immich.pod
 
 [Service]
 Restart=always

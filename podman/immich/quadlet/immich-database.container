@@ -1,9 +1,9 @@
 [Container]
-ContainerName=immich_postgres
+ContainerName=postgres
 Environment=POSTGRES_PASSWORD=shorter-emphasize-ravage POSTGRES_USER=postgres POSTGRES_DB=immich POSTGRES_INITDB_ARGS=--data-checksums
 Image=ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0
-Volume=/data/immich/postgres:/var/lib/postgresql/data
 Pod=immich.pod
+Volume=/data/immich/postgres:/var/lib/postgresql/data
 
 [Service]
 Restart=always

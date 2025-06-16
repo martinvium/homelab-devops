@@ -1,5 +1,5 @@
 [Container]
-ContainerName=immich_redis
+ContainerName=redis
 HealthCmd=redis-cli ping || exit 1
 Image=docker.io/valkey/valkey:8-bookworm
 Pod=immich.pod
