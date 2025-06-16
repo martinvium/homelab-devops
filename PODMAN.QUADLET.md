@@ -5,7 +5,7 @@ Automatically start podman pod during system (re)boot.
 Link container file to user specific config dir:
 
     cd ~/.config/containers/systemd
-    ln -s ~/homelab-devops/podman/immich/immich.container .
+    find "$PWD/quadlet" -type f -name '*' -exec ln -s {} ~/.config/containers/systemd \;
 
 Generate unit files from container files:
 
@@ -17,7 +17,7 @@ Check unit file was generated:
 
 Starting services:
 
-    systemctl --user start immich-server immich-machine-learning
+    systemctl --user start immich.pod
 
 You can debug relevant information using
 
@@ -34,15 +34,19 @@ so inline everything that cannot be loaded via env file.
     rustup default stable
     cargo install podlet
     mkdir quadlet
-    podlet --file quadlet compose
+    podlet --overwrite --file quadlet compose --pod
 
-Seems podman-generator / systemd doesn't support pods, so leaving out the --pod argument here.
+Once you are happy with the generated quadlets, you can symlink them to your systemd folder:
+
+    find "$PWD/quadlet" -type f -name '*' -exec ln -s {} ~/.config/containers/systemd \;
 
 Check that the container files compile into services correctly:
 
     /usr/lib/systemd/user-generators/podman-user-generator -v ~/.config/containers/systemd/
 
-podlet compose doesn't actually generate complete quadlets, and you must manually create e.g. network units:
+## Not using pods
+
+If you are not connecting containers using a pod, you need to explicitly define networks
 
     $ cat .config/containers/systemd/immich.network
     [Unit]
@@ -52,15 +56,17 @@ podlet compose doesn't actually generate complete quadlets, and you must manuall
     Subnet=192.168.30.0/24
     Gateway=192.168.30.1
 
-And volumes:
+And corresponding entries in the relevant containers:
+
+    Network=immich.network
+    Volume=immich-model-cache.volume:/cache
+
+NOTE: You might have to require the network.target to be sure that the containers are ready to be started during boot.
+
+## Adding a volume?
 
     $ cat .config/containers/systemd/immich-model-cache.volume
     [Unit]
     Description=Model Cache Volume
     
     [Volume]
-
-And corresponding entries in the relevant containers:
-
-    Network=immich.network
-    Volume=immich-model-cache.volume:/cache
