@@ -4,7 +4,6 @@ Automatically start podman pod during system (re)boot.
 
 Link container file to user specific config dir:
 
-    cd ~/.config/containers/systemd
     find "$PWD/quadlet" -type f -name '*' -exec ln -s {} ~/.config/containers/systemd \;
 
 Generate unit files from container files:
