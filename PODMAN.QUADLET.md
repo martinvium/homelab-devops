@@ -43,13 +43,17 @@ Once you are happy with the generated quadlets, you can symlink them to your sys
 
     find "$PWD/quadlet" -type f -name '*' -exec ln -s {} ~/.config/containers/systemd \;
 
+## Debugging
+
+https://docs.podman.io/en/latest/markdown/podman-systemd.unit.5.html#debugging-unit-files
+
 Check that the container files compile into services correctly (recommended):
 
     QUADLET_UNIT_DIRS="$PWD/quadlet" /usr/lib/systemd/system-generators/podman-system-generator --user --dryrun
 
-Alternatively, you can actually generate the files in the same directory:
-    
-    /usr/lib/systemd/user-generators/podman-user-generator -v ~/.config/containers/systemd/
+Alternatively, show only the errors with:
+
+    systemd-analyze {--user} --generators=true verify example.service
 
 ## Not using pods
 
