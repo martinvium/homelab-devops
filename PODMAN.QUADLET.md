@@ -1,5 +1,7 @@
 # Quadlet
 
+NOTE: Using [Pod] (--pod with podlet) requires podman 5.x which is not part of Ubuntu LTS at time of writing.
+
 Automatically start podman pod during system (re)boot.
 
 Link container file to user specific config dir:
@@ -12,14 +14,16 @@ Generate unit files from container files:
 
 Check unit file was generated:
     
-    systemctl --user list-unit-files
+    systemctl --user list-unit-files | grep immich
 
 Starting services:
 
     systemctl --user start immich.pod
+    systemctl --user start immich-server --all
 
 You can debug relevant information using
 
+    journalctl --user -xeu immich-pod
     journalctl --user -xeu immich-server
 
 ## Generating quadlet / systemd auto start
