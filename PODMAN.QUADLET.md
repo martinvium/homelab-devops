@@ -68,30 +68,3 @@ Check that the container files compile into services correctly (recommended):
 Alternatively, show only the errors with:
 
     systemd-analyze {--user} --generators=true verify example.service
-
-## Not using pods
-
-If you are not connecting containers using a pod, you need to explicitly define networks
-
-    $ cat .config/containers/systemd/immich.network
-    [Unit]
-    Description=Immich Network
-    
-    [Network]
-    Subnet=192.168.30.0/24
-    Gateway=192.168.30.1
-
-And corresponding entries in the relevant containers:
-
-    Network=immich.network
-    Volume=immich-model-cache.volume:/cache
-
-NOTE: You might have to require the network.target to be sure that the containers are ready to be started during boot.
-
-## Adding a volume?
-
-    $ cat .config/containers/systemd/immich-model-cache.volume
-    [Unit]
-    Description=Model Cache Volume
-    
-    [Volume]
