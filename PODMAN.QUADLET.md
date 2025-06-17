@@ -39,6 +39,17 @@ so inline everything that cannot be loaded via env file.
     mkdir quadlet
     podlet --overwrite --file quadlet compose --pod
 
+After generating the quadlets there are a couple of manual steps:
+
+1. Remove redundant prefixes added by the pod e.g. `immich-immich-server.container` become `immich-server.container`
+2. Add Install section to pod file to enable it on boot:
+   ```
+   [Install]
+   WantedBy=default.target
+   ```
+
+https://docs.podman.io/en/latest/markdown/podman-systemd.unit.5.html#enabling-unit-files
+
 Once you are happy with the generated quadlets, you can symlink them to your systemd folder:
 
     find "$PWD/quadlet" -type f -name '*' -exec ln -s {} ~/.config/containers/systemd \;
