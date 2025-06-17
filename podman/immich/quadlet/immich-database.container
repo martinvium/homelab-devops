@@ -1,5 +1,5 @@
 [Container]
-ContainerName=postgres
+ContainerName=immich-database
 Environment=POSTGRES_PASSWORD=shorter-emphasize-ravage POSTGRES_USER=postgres POSTGRES_DB=immich POSTGRES_INITDB_ARGS=--data-checksums
 Image=ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0
 Pod=immich.pod

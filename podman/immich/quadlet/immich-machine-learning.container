@@ -1,6 +1,6 @@
 [Container]
-ContainerName=machine-learning
-Environment=DB_DATABASE_NAME=immich DB_HOSTNAME=database DB_PASSWORD=shorter-emphasize-ravage DB_USERNAME=postgres REDIS_HOSTNAME=redis
+ContainerName=immich-machine-learning
+Environment=DB_DATABASE_NAME=immich DB_HOSTNAME=immich-database DB_PASSWORD=shorter-emphasize-ravage DB_USERNAME=postgres REDIS_HOSTNAME=immich-redis
 Image=ghcr.io/immich-app/immich-machine-learning:release
 Pod=immich.pod
 Volume=model-cache:/cache
