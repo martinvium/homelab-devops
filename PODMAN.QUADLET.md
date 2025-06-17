@@ -1,8 +1,8 @@
 # Quadlet
 
-NOTE: Using [Pod] (--pod with podlet) requires podman 5.x which is not part of Ubuntu LTS at time of writing.
-
 Automatically start podman pod during system (re)boot.
+
+NOTE: Using [Pod] (--pod with podlet) requires podman 5.x which is not part of Ubuntu LTS at time of writing (available in 24.10+).
 
 Link container file to user specific config dir:
 
