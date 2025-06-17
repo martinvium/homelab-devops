@@ -19,7 +19,10 @@ Check unit file was generated:
 Starting services:
 
     systemctl --user start immich.pod
-    systemctl --user start immich-server --all
+
+Check all dependent services are actually running:
+
+    systemctl --user | grep immich
 
 You can debug relevant information using
 
