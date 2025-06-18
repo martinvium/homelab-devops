@@ -9,7 +9,7 @@ Image=ghcr.io/immich-app/immich-server:release
 Pod=immich.pod
 Volume=/data/immich/library:/usr/src/app/upload
 Volume=/etc/localtime:/etc/localtime:ro
-Volume=/data/photos:/media/photos
+Volume=/data/photos:/media/photos:Z
 
 [Service]
 Restart=always

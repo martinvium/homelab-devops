@@ -10,7 +10,7 @@ services:
     volumes:
       - /data/immich/library:/usr/src/app/upload
       - /etc/localtime:/etc/localtime:ro
-      - /data/photos:/media/photos
+      - /data/photos:/media/photos:Z
     environment:
       DB_DATABASE_NAME: immich
       DB_HOSTNAME: immich-database
