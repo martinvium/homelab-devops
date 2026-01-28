@@ -1,0 +1,11 @@
+[Container]
+AddCapability=NET_ADMIN SYS_TIME SYS_NICE
+ContainerName=pihole
+Environment=TZ=Europe/Copenhagen FTLCONF_webserver_api_password=cringe-wifi-calibrate-ladies FTLCONF_dns_listeningMode=all
+Image=pihole/pihole:latest
+Pod=pihole.pod
+Volume=./etc-pihole:/etc/pihole
+Volume=./:/etc/pihole/example
+
+[Service]
+Restart=always
